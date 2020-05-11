@@ -31,7 +31,17 @@
 
 //Code Here
 
-
+class Employee {
+  constructor(first_name, last_name, email, age){
+    this.first_name = first_name,
+    this.last_name = last_name, 
+    this.email = email,
+    this.age = age
+  }
+ makeWidget(){
+  return `${this.first_name} ${this.last_name} Widget`
+  }
+} 
 ////////// PROBLEM 2 //////////
 
 /*
@@ -49,7 +59,18 @@
 
 //Code Here
 
-
+class Manager extends Employee {
+  constructor(first_name, last_name, email, age){
+  super(first_name, last_name, email, age);
+  this.reports = []
+  }
+  hire(Employee){
+    this.reports.push(Employee)
+  }
+  fire(index){
+    this.reports.splice(index, 1)
+  }
+}
 ////////// PROBLEM 3 //////////
 
 /*
@@ -72,6 +93,43 @@
 */
 
 //Code Here
+
+class ProgressiveManager extends Manager {
+  constructor (first_name, last_name, email, age){
+    super(first_name, last_name, email, age)
+    this.reports = []
+    this.title = 'Not a manager'
+    this.bonus = 0
+  }
+titleChange(){
+  let repNum = this.reports.length
+  if(repNum === 0){
+   this.title = 'Not a Manager'
+  } if(repNum > 0 && repNum <= 3){
+   this.title = 'Barely Manager'
+  } if(repNUm > 3 && repNum <= 10){
+   this.title = 'Mostly Manager'
+  } if(repNum > 10 && repNum <= 50){
+   this.title = 'Manager'
+  } if(repNum > 50 && repNum <= 100){
+   this.title = 'Manager Plus'
+  } if(repNum >= 101){
+   this.title = 'Bestest Manager'
+  }
+}
+
+hire(){
+  super.hire()
+  this.titleChange
+}
+
+fire(){
+  super.fire()
+  this.titleChange()
+  this.bounus += 100
+  
+  }
+}
 
 
 
@@ -99,5 +157,27 @@
 */
 
 //Code Here
+
+class Machine {
+  constructor(){
+    this.widgets_made_count = 0
+    this.wear_and_tear_count = 0
+    this.needs_reboot = false
+  }
+  makeWidgets (num){
+    this.widgets_made_count += num
+    this.wear_and_tear_count = Math.floor(this.widgets_made_count / 50)
+  }
+  fixMachine (){
+    this.needs_reboot = true
+  }
+  reboot() {
+    return() => {
+      this.wear_and_tear_count -= 10
+      this.needs_reboot = false
+    }
+  }
+}
+
 
 
