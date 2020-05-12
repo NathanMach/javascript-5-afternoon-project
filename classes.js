@@ -104,10 +104,10 @@ class ProgressiveManager extends Manager {
 titleChange(){
   let repNum = this.reports.length
   if(repNum === 0){
-   this.title = 'Not a Manager'
+   this.title = 'Not a manager'
   } if(repNum > 0 && repNum <= 3){
    this.title = 'Barely Manager'
-  } if(repNUm > 3 && repNum <= 10){
+  } if(repNum > 3 && repNum <= 10){
    this.title = 'Mostly Manager'
   } if(repNum > 10 && repNum <= 50){
    this.title = 'Manager'
@@ -120,13 +120,13 @@ titleChange(){
 
 hire(){
   super.hire()
-  this.titleChange
+  this.titleChange()
 }
 
 fire(){
   super.fire()
   this.titleChange()
-  this.bounus += 100
+  this.bonus += 100
   
   }
 }
@@ -178,6 +178,3 @@ class Machine {
     }
   }
 }
-
-
-

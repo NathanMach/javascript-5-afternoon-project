@@ -127,8 +127,8 @@ counter = counterFactory(10);
 function motivation( firstname, lastname ) {
   var welcomeText = "You're doing awesome, keep it up";
 
-function message ( firstname, lastname ) {
-  `welcomeText ${firstname} ${lastname}. `
+function message () {
+  return `You're doing awesome, keep it up ${firstname} ${lastname}.`
 }
 
   //Uncommment this to return the value of your message function
@@ -181,10 +181,14 @@ function secretNumber() {
   var secret = 143;
 
   return {
-    addToSecret(){
-    return takeAwayFromSecret()
-    }
-    
+    addToSecret(num){
+      secret += num
+    return secret
+    }, 
+   takeAwayFromSecret(num){
+     secret -= num
+     return secret
+   }, 
   };
 }
 
